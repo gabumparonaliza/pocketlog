@@ -6,7 +6,8 @@ const expenseList = document.getElementById("expenseList");
 const totalElement = document.getElementById("total");
 const emptyMessage = document.getElementById("emptyMessage");
 
-let expenses = [];
+let expenses =
+  JSON.parse(localStorage.getItem("pocketlog-expenses")) || [];
 
 expenseForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -24,22 +25,54 @@ expenseForm.addEventListener("submit", function (event) {
     amount: amount
   });
 
+  saveExpenses();
   displayExpenses();
 
   expenseName.value = "";
   expenseAmount.value = "";
+  expenseName.focus();
 });
+
+function saveExpenses() {
+  localStorage.setItem(
+    "pocketlog-expenses",
+    JSON.stringify(expenses)
+  );
+}
+
+function removeExpense(index) {
+  expenses.splice(index, 1);
+
+  saveExpenses();
+  displayExpenses();
+}
 
 function displayExpenses() {
   expenseList.innerHTML = "";
 
   let total = 0;
 
-  expenses.forEach(function (expense) {
+  expenses.forEach(function (expense, index) {
+
     const item = document.createElement("li");
 
-    item.textContent =
-      expense.name + " - ₱" + expense.amount.toFixed(2);
+    const name = document.createElement("span");
+    name.textContent = expense.name;
+
+    const amount = document.createElement("span");
+    amount.textContent =
+      "₱" + expense.amount.toFixed(2);
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+
+    removeButton.addEventListener("click", function () {
+      removeExpense(index);
+    });
+
+    item.appendChild(name);
+    item.appendChild(amount);
+    item.appendChild(removeButton);
 
     expenseList.appendChild(item);
 
@@ -51,3 +84,5 @@ function displayExpenses() {
   emptyMessage.style.display =
     expenses.length === 0 ? "block" : "none";
 }
+
+displayExpenses();
