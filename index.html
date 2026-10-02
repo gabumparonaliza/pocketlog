@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PocketLog</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="app">
+
+    <h1>PocketLog</h1>
+
+    <p class="subtitle">
+      Keep track of where your money goes.
+    </p>
+
+    <form id="expenseForm">
+
+      <input
+        type="text"
+        id="expenseName"
+        placeholder="What did you buy?"
+      >
+
+      <input
+        type="number"
+        id="expenseAmount"
+        placeholder="Amount"
+      >
+
+      <button type="submit">
+        Add Spending
+      </button>
+
+    </form>
+
+    <section class="summary">
+      <h2>
+        Total Spent: ₱<span id="total">0.00</span>
+      </h2>
+    </section>
+
+    <ul id="expenseList"></ul>
+
+    <p id="emptyMessage">
+      No spending recorded yet.
+    </p>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
