@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #ecfdf5;
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+.app {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #166534;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+#expenseForm {
+  display: grid;
+  gap: 10px;
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #16a34a;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #15803d;
+}
+
+.summary {
+  margin: 25px 0;
+  padding: 18px;
+  background: #f0fdf4;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.summary h2 {
+  margin: 0;
+  color: #166534;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#emptyMessage {
+  text-align: center;
+  color: #94a3b8;
+}
