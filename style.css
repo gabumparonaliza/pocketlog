@@ -4,31 +4,33 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: #ecfdf5;
+  background: linear-gradient(135deg, #dcfce7, #f0fdf4);
   min-height: 100vh;
   margin: 0;
   padding: 40px 20px;
+  color: #334155;
 }
 
 .app {
-  max-width: 600px;
+  max-width: 620px;
   margin: auto;
   background: white;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 h1 {
   text-align: center;
   color: #166534;
-  margin-bottom: 5px;
+  margin: 0;
+  font-size: 32px;
 }
 
 .subtitle {
   text-align: center;
   color: #64748b;
-  margin-bottom: 30px;
+  margin: 8px 0 30px;
 }
 
 #expenseForm {
@@ -37,30 +39,38 @@ h1 {
 }
 
 input {
-  padding: 12px;
+  width: 100%;
+  padding: 13px;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   font-size: 15px;
+  outline: none;
 }
 
-button {
-  padding: 12px;
+input:focus {
+  border-color: #16a34a;
+}
+
+#expenseForm button {
+  padding: 13px;
   border: none;
   border-radius: 8px;
   background: #16a34a;
   color: white;
+  font-size: 15px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-button:hover {
+#expenseForm button:hover {
   background: #15803d;
 }
 
 .summary {
   margin: 25px 0;
-  padding: 18px;
+  padding: 20px;
   background: #f0fdf4;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
 }
 
@@ -69,17 +79,58 @@ button:hover {
   color: #166534;
 }
 
-ul {
+#expenseList {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-li {
-  padding: 12px 0;
+#expenseList li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
   border-bottom: 1px solid #e2e8f0;
+}
+
+#expenseList li span:first-child {
+  flex: 1;
+}
+
+#expenseList li span:nth-child(2) {
+  font-weight: bold;
+  color: #166534;
+}
+
+#expenseList button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 7px;
+  background: #ef4444;
+  color: white;
+  cursor: pointer;
+}
+
+#expenseList button:hover {
+  background: #dc2626;
 }
 
 #emptyMessage {
   text-align: center;
   color: #94a3b8;
+  padding: 20px;
+}
+
+@media (max-width: 500px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .app {
+    padding: 22px;
+  }
+
+  #expenseList li {
+    flex-wrap: wrap;
+  }
 }
